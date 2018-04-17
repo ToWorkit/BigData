@@ -42,5 +42,7 @@ public class ProxyTestMain {
 				});
 		
 		// 通过代理对象调用 method01和method02
+		proxyObj.method01();
+		proxyObj.method02();
 	}
 }

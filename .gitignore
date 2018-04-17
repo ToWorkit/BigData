@@ -1,3 +1,5 @@
 /.metadata/
 /lib/
 Hadoop/lib/
+/.recommenders/
+/RemoteSystemsTempFiles/

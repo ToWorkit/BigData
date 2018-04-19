@@ -105,4 +105,11 @@ public class Employee_08 implements Writable{
 	public void setDeptno(int deptno) {
 		this.deptno = deptno;
 	}
+
+	@Override
+	public String toString() {
+		return "Employee_08 [ename=" + ename + ", job=" + job + ", sal=" + sal + ", comm=" + comm + ", deptno=" + deptno
+				+ "]";
+	}
+	
 }

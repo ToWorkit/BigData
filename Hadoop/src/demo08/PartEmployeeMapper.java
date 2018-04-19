@@ -11,7 +11,7 @@ public class PartEmployeeMapper extends Mapper<LongWritable, Text, IntWritable, 
 	@Override
 	protected void map(LongWritable key1, Text value1, Mapper<LongWritable, Text, IntWritable, Employee_08>.Context context)
 			throws IOException, InterruptedException {
-		// 数据：7654,MARTIN,SALESMAN,7698,1981/9/28,1250,1400,30]
+		// 数据：7654,MARTIN,SALESMAN,7698,1981/9/28,1250,1400,30
 		String data = value1.toString();
 		// 分词
 		String[] words = data.split(",");

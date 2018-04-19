@@ -5,9 +5,8 @@ import java.io.DataOutput;
 import java.io.IOException;
 
 import org.apache.hadoop.io.Writable;
-
 //Êý¾Ý: 7654,MARTIN,SALESMAN,7698,1981/9/28,1250,1400,30
-public class Employee implements Writable {
+public class Employee_08 implements Writable{
 	private int empno;
 	private String ename;
 	private String job;

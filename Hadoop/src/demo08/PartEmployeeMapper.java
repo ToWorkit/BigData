@@ -7,11 +7,9 @@ import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Mapper;
 
-import demo06.Employee;
-
-public class PartEmployeeMapper extends Mapper<LongWritable, Text, IntWritable, Employee> {
+public class PartEmployeeMapper extends Mapper<LongWritable, Text, IntWritable, Employee_08> {
 	@Override
-	protected void map(LongWritable key1, Text value1, Mapper<LongWritable, Text, IntWritable, Employee>.Context context)
+	protected void map(LongWritable key1, Text value1, Mapper<LongWritable, Text, IntWritable, Employee_08>.Context context)
 			throws IOException, InterruptedException {
 		// 数据：7654,MARTIN,SALESMAN,7698,1981/9/28,1250,1400,30]
 		String data = value1.toString();
@@ -19,7 +17,7 @@ public class PartEmployeeMapper extends Mapper<LongWritable, Text, IntWritable, 
 		String[] words = data.split(",");
 		
 		// 创建员工对象
-		Employee e = new Employee();
+		Employee_08 e = new Employee_08();
 		
 		// 设置员工的属性
 		// 员工号

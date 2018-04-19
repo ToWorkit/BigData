@@ -3,7 +3,7 @@ package demo08;
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.mapreduce.Partitioner;
 // k2 v2
-public class MyEmployeeParitioner extends Partitioner<IntWritable, Employee> {
+public class MyEmployeeParitioner extends Partitioner<IntWritable, Employee_08> {
 
 	/*
 	 * (non-Javadoc)
@@ -13,7 +13,7 @@ public class MyEmployeeParitioner extends Partitioner<IntWritable, Employee> {
 	 *  参数 -> 建立多少个分区
 	 */
 	@Override
-	public int getPartition(IntWritable k2, Employee v2, int numParition) {
+	public int getPartition(IntWritable k2, Employee_08 v2, int numParition) {
 		// 建立分区
 		// 根据部门号
 		if (v2.getDeptno() == 10) {

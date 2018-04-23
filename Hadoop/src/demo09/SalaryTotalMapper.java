@@ -14,5 +14,10 @@ public class SalaryTotalMapper extends Mapper<LongWritable, Text, IntWritable, I
 			throws IOException, InterruptedException {
 		// 要处理的数据格式
 		//数据：7654,MARTIN,SALESMAN,7698,1981/9/28,1250,1400,30
+		String data = v1.toString();
+		// 分词
+		String[] words = data.split(",");
+		// 输出 部门号，薪水
+		context.write(new IntWritable(Integer.parseInt(words[7])), new IntWritable(Integer.parseInt(words[5])));
 	}
 }

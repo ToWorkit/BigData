@@ -22,6 +22,10 @@ public class AvgSalaryMain {
 		job.setMapOutputKeyClass(Text.class);
 		job.setMapOutputValueClass(IntWritable.class);
 		
+		// avg_02 添加combiner
+		job.setCombinerClass(AvgSalaryReducer.class);
+		// combiner之后Reducer的输入格式就会出错，报ERROR
+		
 		// 指定Reducer以及Reducer的输出格式
 		job.setReducerClass(AvgSalaryReducer.class);
 		job.setOutputKeyClass(Text.class);

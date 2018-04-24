@@ -1,4 +1,4 @@
-package demo08;
+package demo08_·ÖÇø;
 
 import java.io.DataInput;
 import java.io.DataOutput;

@@ -1,4 +1,4 @@
-package demo08;
+package demo08_·ÖÇø;
 
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.mapreduce.Partitioner;

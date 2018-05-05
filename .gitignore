@@ -3,3 +3,4 @@
 Hadoop/lib/
 /.recommenders/
 /RemoteSystemsTempFiles/
+*.jar

@@ -4,3 +4,6 @@ Hadoop/lib/
 /.recommenders/
 /RemoteSystemsTempFiles/
 *.jar
+Scala/project
+Scala/target
+.idea

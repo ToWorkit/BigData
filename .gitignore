@@ -6,4 +6,6 @@ Hadoop/lib/
 *.jar
 Scala/project
 Scala/target
+Scala_02/project
+Scala_02/target
 .idea

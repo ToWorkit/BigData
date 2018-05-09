@@ -33,5 +33,6 @@ object Demo1 {
       // 在匿名子类中，重写父类的方法
       override def sayHello(): String = "匿名子类中的sayHello方法"
     }
+    println(p2.sayHello())
   }
 }

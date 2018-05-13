@@ -31,7 +31,7 @@ object ScalaUpperBound {
     takeVehicle(v2)
 
     // 能否使用Apple error
-    var v3: Apple = new Apple
-    takeVehicle(v3)
+//    var v3: Apple = new Apple
+//    takeVehicle(v3)
   }
 }

@@ -23,7 +23,21 @@ object call_by_name_value {
       * 参数
       */
     // 默认参数
-    def foo01(name: String = "Hello", age: Int = 20) = name + "is " + age
+    def foo01(name: String = "Hello", age: Int = 20) = name + " is " + age
     println(foo01())
+
+    // 代名参数
+    def foo02(name: String = "H", age: Int = 21): String = name + " this age of " + age
+    println(foo02())
+    println(foo02(age = 23))
+
+    // 可变参数
+    var result = 0 // 全局变量
+    def foo03(ages: Int*): Int = {
+      for(i <- ages) result += i
+      result
+    }
+    println(foo03(1, 2, 3)) // 6
+    println(foo03(4, 5, 1, 3)) // 19 全局变量
   }
 }

@@ -36,5 +36,10 @@ object for_list {
     println("-" * 10)
 
     // while
+    var i = 0
+    while(i < list.length) {
+      println(list(i))
+      i += 1
+    }
   }
 }

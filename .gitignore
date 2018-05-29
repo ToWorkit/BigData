@@ -16,3 +16,4 @@ Spark_Server/target
 Spark_Server/saprkJars
 Spark_Server/src/main/org/
 .idea
+*.class

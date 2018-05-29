@@ -5,7 +5,7 @@ import scala.collection.mutable.ArrayBuffer
 val a = new Array[Int](10)
 val b = new Array[String](3)
 val c = Array("Hello", "World")
-println(a(9))
+println(c(1))
 
 // 变长数组 ArrayBuffer
 val d = new ArrayBuffer[Int]()

@@ -27,4 +27,4 @@ object Student {
 //    s.money = 2000
   }
 }
-Student.main(Array("Tom"))
+Student.main(Array_01("Tom"))

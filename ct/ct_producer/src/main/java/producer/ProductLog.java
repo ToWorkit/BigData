@@ -1,5 +1,6 @@
 package producer;
 
+import java.io.*;
 import java.text.DecimalFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -66,7 +67,7 @@ public class ProductLog {
      * 生产数据
      * 形式: 13684972862,15641593723,2018-03-02 09:13:20,0360
      */
-    public void product() {
+    public String product() {
         // 主叫号码
         String caller = null;
         // 被叫号码(不能和主叫相同)
@@ -76,28 +77,37 @@ public class ProductLog {
         String calleeName = null;
 
         // 强转为int 随机下标取手机号
-        int callerIndex = (int)(Math.random() * phoneList.size());
+        int callerIndex = (int) (Math.random() * phoneList.size());
 
         caller = phoneList.get(callerIndex);
         callerName = phoneNameMap.get(caller);
         while (true) {
-            int calleeIndex = (int)(Math.random() * phoneList.size());
+            int calleeIndex = (int) (Math.random() * phoneList.size());
             callee = phoneList.get(calleeIndex);
             calleeName = phoneNameMap.get(callee);
-            if(!caller.equals(callee)) break;
+            if (!caller.equals(callee)) break;
         }
         // 通话日期
         String buildTime = randomBuildTime(startTime, endTime);
         // 将数据格式化为 "0000"
         DecimalFormat df = new DecimalFormat("0000");
-        String duration = df.format((int)(30 * 60 * Math.random()));
-        System.out.println(caller + "," + callerName + "," + callee + "," + calleeName + "," + buildTime + "," + duration);
+        String duration = df.format((int) (30 * 60 * Math.random()));
+        // 格式化为string, StringBuilder 连接字符串效率最高
+        StringBuilder sb = new StringBuilder();
+        sb
+                .append(caller + ",")
+                .append(callee + ",")
+                .append(buildTime + ",")
+                .append(duration);
+        // 再将 StringBuilder 对象转为字符串
+        return sb.toString();
     }
 
     /**
      * 传入日期区间，建立随机通话日期
      * TS: 时间戳
      * startTimeTS + (endTimeTS - startTimeTS) * Math.random();
+     *
      * @param startTime
      * @param endTime
      */
@@ -111,7 +121,7 @@ public class ProductLog {
 
             if (endDate.getTime() <= startDate.getTime()) return null;
 
-            long randomTs = startDate.getTime() + (long)((endDate.getTime() - startDate.getTime()) * Math.random());
+            long randomTs = startDate.getTime() + (long) ((endDate.getTime() - startDate.getTime()) * Math.random());
             // 将时间戳转为时间对象
             Date resultDate = new Date(randomTs);
             // 添加时分秒
@@ -128,16 +138,37 @@ public class ProductLog {
     /**
      * 将数据写入到文件中
      */
-    public void writeLog() {
-
+    public void writeLog(String filePath) {
+        // 人名为中文涉及到编码所以采用字符流
+        // 参数为输出字节流
+        try {
+            OutputStreamWriter osw = new OutputStreamWriter(new FileOutputStream(filePath), "UTF-8");
+            while (true) {
+                Thread.sleep(500);
+                // 数据
+                String log = product();
+                System.out.println(log);
+                osw.write(log + "\n");
+                // 每次必须手动刷新一下流，不然会缓存到流中然后一次性写入，手动flush可以保证每次都写入数据，保证数据的完整性
+                osw.flush();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e2) {
+            e2.printStackTrace();
+        }
     }
 
     public static void main(String[] args) throws InterruptedException {
+        // 打包传参
+        if (args == null || args.length <= 0) {
+            System.out.println("no arguments");
+            return;
+        }
+        String logPath = "D:\\calllog.csv";
         ProductLog productLog = new ProductLog();
         productLog.initPhone();
-        while(true) {
-            Thread.sleep(1000);
-            productLog.product();
-        }
+//        productLog.writeLog(logPath);
+        productLog.writeLog(args[0]);
     }
 }

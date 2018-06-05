@@ -67,5 +67,19 @@ object match_case {
       case List(x, y, z) => println("该List中包含三个元素，和是: " + (x + y + z))
       case List(x, _*) => println("這是一個List")
     }
+
+    // 使用样本支持模式匹配，类似 instanceof
+    // 判断一个对象是否是某个类的对象
+    class Test
+    case class Car(name: String) extends Test
+    case class Bike(name: String) extends Test
+    // 定义一个Car 对象
+    var tCar: Test = new Car("汽车")
+
+    tCar match {
+      case Car(name) => println("汽车_")
+      case Bike(name) => println("自行车")
+      case _ => println("其他类型")
+    }
   }
 }

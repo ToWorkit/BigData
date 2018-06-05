@@ -21,5 +21,15 @@ object def_ {
 //    (x: Int) => x * 3
     val arr = Array(2, 3, 1).map(x => x * 3)
     arr.foreach(println)
+
+
+    // 闭包，内函数中可以访问外函数中的变量
+    // factor 接收一个double参数，表示乘以多少倍
+    // x 匿名函数，并且作为内函数可以访问外函数的值，即factor
+    def mulB(factor: Double) = (x: Double) => x * factor
+
+    // 乘以 3 的方法函数
+    val test_01 = mulB(3)
+    println(test_01(10))
   }
 }

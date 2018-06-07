@@ -21,7 +21,8 @@ object demo_01 {
     var c1: EatSomething[Bird] = new EatSomething[Bird](new Bird)
 
     // 创建一个动物吃东西的对象
-    //
+    // EatSomething 必须是协变否则会报错
+    // 协变后就可以完成将一个子类Bird付给父类Animal
     var c2: EatSomething[Animal] = c1
   }
 }

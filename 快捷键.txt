@@ -1,5 +1,0 @@
-ctrl + p 参数提示
-ctrl + alt + v 命名关键字补全
-alt + 回车 提示
-ctrl + alt + 回车 补全末尾分号
-ctrl + alt + t 包裹代码段（try catch 等）

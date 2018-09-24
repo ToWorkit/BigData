@@ -22,6 +22,7 @@ public class ProxyTestMain {
                     // 不感兴趣的放过
                     return method.invoke(obj, args);
                 }
+                return 1;
             }
         });
         // 通过代理对象调用方法

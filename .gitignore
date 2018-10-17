@@ -18,3 +18,5 @@ Spark_Server/src/main/org/
 .idea
 *.class
 *.iml
+/target/
+target/

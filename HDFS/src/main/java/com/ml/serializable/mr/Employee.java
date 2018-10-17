@@ -1,12 +1,14 @@
 package com.ml.serializable.mr;
 
+import org.apache.hadoop.io.Writable;
+
 import java.io.DataInput;
 import java.io.DataOutput;
 import java.io.IOException;
-import java.io.Serializable;
 
 // 数据: 7654,MARTIN,SALESMAN,7698,1981/9/28,1250,1400,30
-public class Employee implements Serializable {
+// 实现MapReduce的序列化接口
+public class Employee implements Writable {
 
     // 需要的属性
     private int empno;

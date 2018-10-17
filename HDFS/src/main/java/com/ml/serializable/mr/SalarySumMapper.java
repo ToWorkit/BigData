@@ -41,8 +41,8 @@ public class SalarySumMapper extends Mapper<LongWritable, Text, IntWritable, Emp
         // 奖金
         try {
             employee.setComm(Integer.parseInt(words[6]));
-        } catch (NumberFormatException e) {
-            employee.setComm(-1);
+        } catch (Exception e) {
+            employee.setComm(0);
         }
         employee.setDeptno(Integer.parseInt(words[7]));
 

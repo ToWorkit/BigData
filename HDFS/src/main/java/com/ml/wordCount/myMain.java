@@ -31,6 +31,9 @@ public class myMain {
         job.setMapOutputKeyClass(Text.class);
         job.setMapOutputValueClass(IntWritable.class);
 
+        // 添加Combiner
+        job.setCombinerClass(myReducer.class);
+
         /**
          * 指定job的Reducer及其输出的类型 <k4 v4> (同时也是任务job的输出)
          */

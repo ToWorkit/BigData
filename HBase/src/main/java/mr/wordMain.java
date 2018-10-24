@@ -34,6 +34,7 @@ public class wordMain {
             );
 
         // 指定Reducer
+        // 输出表 -> stat
         TableMapReduceUtil.initTableReducerJob("stat", wordReducer.class, job);
 
         // 执行任务

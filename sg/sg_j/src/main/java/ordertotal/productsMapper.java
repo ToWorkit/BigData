@@ -24,7 +24,7 @@ public class productsMapper extends Mapper<LongWritable, Text, IntWritable, Text
         // 输出
         if (fileName.equals("products")) {  // 商品信息
             // 商品ID 名称
-            context.write(new IntWritable(Integer.parseInt(words[0])), new Text("name: " + words[1]));
+            context.write(new IntWritable(Integer.parseInt(words[0])), new Text("name:" + words[1]));
         } else {    // 订单信息
             // ID   年份:金额
             context.write(new IntWritable(Integer.parseInt(words[0])), new Text(words[2] + ":" + words[6]));

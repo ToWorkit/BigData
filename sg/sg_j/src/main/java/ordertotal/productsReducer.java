@@ -19,7 +19,7 @@ public class productsReducer extends Reducer<IntWritable, Text, Text, Text> {
             // 先转为String类型
             String s = value.toString();
             // 判断是否为商品表
-            if (s.indexOf("name: ") >= 0) {
+            if (s.indexOf("name:") >= 0) {
                 productName = s.substring(s.indexOf("name: ") + 1);
             } else { // 订单表
                 // words[2] + ":" + words[6]

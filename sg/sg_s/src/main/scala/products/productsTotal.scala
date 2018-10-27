@@ -1,7 +1,6 @@
 package products
 
 import org.apache.spark.sql.SparkSession
-import org.apache.spark.{SparkConf, SparkContext}
 import java.lang.Double
 
 // 商品表

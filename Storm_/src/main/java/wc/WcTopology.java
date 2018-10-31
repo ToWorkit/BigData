@@ -43,7 +43,13 @@ public class WcTopology {
         /**
          * 第三个Bolt组件，将结果保存的Redis上
          */
-        builder.setBolt("wc_redis", createRedisBolt()).shuffleGrouping("wc_total");
+//        builder.setBolt("wc_redis", createRedisBolt()).shuffleGrouping("wc_total");
+
+
+        /**
+         * 第三个Bolt组件，将结果保存到HBase上
+         */
+        builder.setBolt("wc_hbase", new WcHBaseBolt()).shuffleGrouping("wc_total");
 
         // 创建任务 Topology
         StormTopology topology = builder.createTopology();

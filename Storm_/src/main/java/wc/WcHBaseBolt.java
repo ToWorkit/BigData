@@ -39,12 +39,21 @@ public class WcHBaseBolt extends BaseRichBolt {
      */
     public void execute(Tuple tuple) {
         String word = tuple.getStringByField("word");
+        // 上一个组件是以int形式传过来的
         int total = tuple.getIntegerByField("total");
 
         // 构建HBase 的 put 对象
         // 数据都是字节类型的
         Put put = new Put(Bytes.toBytes(word));
-        
+        put.add(Bytes.toBytes("info"), Bytes.toBytes("word"), Bytes.toBytes(word));
+        // 需要转为String之后在进行字节转换
+        put.add(Bytes.toBytes("info"), Bytes.toBytes("total"), Bytes.toBytes(String.valueOf(total)));
+
+        try {
+            this.table.put(put);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public void declareOutputFields(OutputFieldsDeclarer outputFieldsDeclarer) {

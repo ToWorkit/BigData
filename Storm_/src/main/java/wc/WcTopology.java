@@ -3,9 +3,6 @@ package wc;
 import org.apache.storm.Config;
 import org.apache.storm.LocalCluster;
 import org.apache.storm.StormSubmitter;
-import org.apache.storm.generated.AlreadyAliveException;
-import org.apache.storm.generated.AuthorizationException;
-import org.apache.storm.generated.InvalidTopologyException;
 import org.apache.storm.generated.StormTopology;
 import org.apache.storm.topology.TopologyBuilder;
 import org.apache.storm.tuple.Fields;
@@ -14,7 +11,7 @@ import org.apache.storm.tuple.Fields;
  * 任务主程序 创建任务 Topology
  */
 public class WcTopology {
-    public static void main(String[] args) throws InvalidTopologyException, AuthorizationException, AlreadyAliveException {
+    public static void main(String[] args) throws Exception {
         TopologyBuilder builder = new TopologyBuilder();
 
         // 设置任务的 spout 组件
@@ -44,4 +41,9 @@ public class WcTopology {
          */
         StormSubmitter.submitTopology("WC", config, topology);
     }
+
+    /**
+     * 将结果统计到HDFS上
+     */
+    
 }

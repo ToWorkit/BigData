@@ -23,7 +23,6 @@ public class WcTotalBolt extends BaseRichBolt {
     private Map<String, Integer> result = new HashMap<String, Integer>();
 
 
-    // TODO Auto-generated method stub
     /**
      * 初始化 Bolt
      */

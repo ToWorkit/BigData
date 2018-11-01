@@ -18,3 +18,7 @@ public class CheckSalaryGrade extends UDF {
         else return "A";
     }
 }
+
+/*
+    map 集合，key相同，值会被覆盖
+ */

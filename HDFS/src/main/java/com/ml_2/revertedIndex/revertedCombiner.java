@@ -18,6 +18,6 @@ public class revertedCombiner extends Reducer<Text, Text, Text, Text> {
         }
 
         // 将单词与文件分离
-        
+
     }
 }

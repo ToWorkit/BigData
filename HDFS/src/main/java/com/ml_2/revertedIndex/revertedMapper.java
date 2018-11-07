@@ -1,6 +1,5 @@
 package com.ml_2.revertedIndex;
 
-import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Mapper;
@@ -23,7 +22,7 @@ public class revertedMapper extends Mapper<LongWritable, Text, Text, Text> {
 
         // 输出
         for (String word : words) {
-            // 单词:文件名
+            // 单词:文件名   1
             context.write(new Text(word + ":" + substring), new Text("1"));
         }
     }

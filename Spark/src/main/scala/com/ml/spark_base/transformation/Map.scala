@@ -1,4 +1,4 @@
-package com.ml.spark_base
+package com.ml.spark_base.transformation
 
 import org.apache.spark.SparkConf
 import org.apache.spark.rdd.RDD

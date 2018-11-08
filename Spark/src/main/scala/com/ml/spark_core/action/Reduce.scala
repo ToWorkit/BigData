@@ -19,6 +19,7 @@ object Reduce {
     //    SaveAsTextFile()
     CountByKey()
     Foreach()
+    ForeachPartition()
   }
 
   /**
@@ -130,5 +131,36 @@ object Reduce {
 
     // 55
     println(sum.value)
+  }
+
+  /**
+    * 对分区内的Rdd操作
+    *   没有返回值并且是action操作
+    *   在程序末尾比如说要落地数据到存储系统中如mysql，es，或者hbase中，可以用它
+    */
+  def ForeachPartition(): Unit = {
+    var rdd = sc.makeRDD(1 to 10,2)
+    rdd.foreachPartition(partition => {
+      /**
+        * 5
+        * 5
+        */
+//      println(partition.size) 执行size操作之后下面会没有数据，因为没有返回值
+      partition.foreach(item => {
+        /**
+          * 6
+          * 7
+          * 8
+          * 9
+          * 10
+          * 1
+          * 2
+          * 3
+          * 4
+          * 5
+          */
+        println(item)
+      })
+    })
   }
 }

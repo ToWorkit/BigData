@@ -1,4 +1,4 @@
-package com.ml.spark_base.transformation
+package com.ml.spark_core.transformation
 
 import org.apache.spark.SparkConf
 import org.apache.spark.sql.SparkSession

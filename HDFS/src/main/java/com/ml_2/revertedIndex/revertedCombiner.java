@@ -7,8 +7,8 @@ import java.io.IOException;
 
 /**
  * combiner
- *      map -> combiner 会自动对单个文件内出现的单词分组
- *      将单个文件中出现的词频数合并
+ * map -> combiner 会自动对单个文件内出现的单词分组
+ * 将单个文件中出现的词频数合并
  */
 public class revertedCombiner extends Reducer<Text, Text, Text, Text> {
     @Override

@@ -15,7 +15,7 @@ public class revertedMapper extends Mapper<LongWritable, Text, Text, Text> {
         // 获取输入的文件路径名 test/love01.txt
         // context.getInputSplit() -> org.apache.hadoop.mapreduce.InputSplit, 需要转为 FileSplit -> org.apache.hadoop.mapreduce.lib.input.FileSplit
         // getPath() -> org.apache.hadoop.fs.Path
-        String path = ((FileSplit)context.getInputSplit()).getPath().toString();
+        String path = ((FileSplit) context.getInputSplit()).getPath().toString();
 
         // 截取文件名
         String substring = path.substring(path.lastIndexOf("/") + 1);

@@ -14,6 +14,7 @@ public class revertedCombiner extends Reducer<Text, Text, Text, Text> {
     @Override
     protected void reduce(Text key, Iterable<Text> values, Context context) throws IOException, InterruptedException {
         // 数据 I:test01.txt 1
+        // 中间会产生shuffle
         // I:test02.txt (1, 1, 1)
         // 对单词频率求和
         int total = 0;

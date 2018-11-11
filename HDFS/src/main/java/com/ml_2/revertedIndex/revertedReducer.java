@@ -7,7 +7,7 @@ import java.io.IOException;
 
 /**
  * reducer
- *      combiner -> reducer 会自动对单词分组
+ *      combiner -> reducer 会自动对单词分组(shuffle)
  *      Love     ("xx.txt->1", "xx.txt->2", "xx.txt->1")
  */
 public class revertedReducer extends Reducer<Text, Text, Text, Text> {

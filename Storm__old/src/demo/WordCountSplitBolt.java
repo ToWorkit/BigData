@@ -44,7 +44,7 @@ public class WordCountSplitBolt extends BaseRichBolt{
 
 	@Override
 	public void declareOutputFields(OutputFieldsDeclarer declarer) {
-		//用于申明输出的Schema
+		//用于声明输出的Schema
 		declarer.declare(new Fields("word","count"));
 	}
 

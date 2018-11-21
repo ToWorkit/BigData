@@ -30,8 +30,10 @@ object Map {
     // strRdd
     val strRdd = sc.makeRDD(Array("abc", "abd", "dbc", "dba", "cba", "aba"))
 
+    // 窄依赖
     Map(intRdd)
     Filter(strRdd)
+    // 多到一
     FlatMap(intRdd)
     Som()
   }

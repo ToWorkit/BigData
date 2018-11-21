@@ -13,6 +13,7 @@ object ReduceByKey {
 
   def main(args: Array[String]): Unit = {
     reduceByKey()
+    // shuffle 宽依赖
     groupByKey()
     CombinerByKey()
     AggregateByKey()

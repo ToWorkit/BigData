@@ -19,7 +19,7 @@ object LogDemo extends App {
     // 格式：192.168.88.1 - - [30/Jul/2017:12:53:43 +0800] "GET /MyDemoWeb/head.jsp HTTP/1.1" 200 713
     line => {
       // 解析字符串找出 xx.jsp
-      
+
       // 可以使用正则来处理
       // val pattern = new Regex("")
 
@@ -49,6 +49,7 @@ object LogDemo extends App {
   // 按照 访问量 降序排列
   val rdd3 = rdd2.sortBy(_._2, false)
   // rdd3.take(6) =>  Array[(String, Int)]
+  
   // toBuffer 将定长数组转为变长数组
   // Array -> ArrayBuffer
   // ArrayBuffer((hadoop.jsp,9), (oracle.jsp,9), (web.jsp,3), (mysql.jsp,3))

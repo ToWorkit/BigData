@@ -48,8 +48,8 @@ object LogDemo extends App {
   val rdd2 = rdd.reduceByKey(_ + _)
   // 按照 访问量 降序排列
   val rdd3 = rdd2.sortBy(_._2, false)
-  // rdd3.take(6) =>  Array[(String, Int)]
   
+  // rdd3.take(6) =>  Array[(String, Int)]
   // toBuffer 将定长数组转为变长数组
   // Array -> ArrayBuffer
   // ArrayBuffer((hadoop.jsp,9), (oracle.jsp,9), (web.jsp,3), (mysql.jsp,3))

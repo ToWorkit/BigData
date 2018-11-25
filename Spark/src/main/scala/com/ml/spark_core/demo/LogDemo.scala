@@ -38,7 +38,6 @@ object LogDemo extends App {
 
       // 找到*.jsp  hadoop.jsp
       val jspName = str2.substring(str2.lastIndexOf("/") + 1)
-
       // 赋值为1 并返回
       (jspName, 1)
     }
@@ -48,7 +47,7 @@ object LogDemo extends App {
   val rdd2 = rdd.reduceByKey(_ + _)
   // 按照 访问量 降序排列
   val rdd3 = rdd2.sortBy(_._2, false)
-  
+
   // rdd3.take(6) =>  Array[(String, Int)]
   // toBuffer 将定长数组转为变长数组
   // Array -> ArrayBuffer

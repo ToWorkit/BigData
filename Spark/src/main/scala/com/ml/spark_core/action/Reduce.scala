@@ -36,7 +36,7 @@ object Reduce {
   }
 
   /**
-    * 以数组的形式返回数据集的所有元素以数组的形式返回数据集的所有元素
+    * 以数组的形式返回数据集的所有元素
     */
   def Collect(): Unit = {
     val rdd = sc.makeRDD(1 to 10, 2)

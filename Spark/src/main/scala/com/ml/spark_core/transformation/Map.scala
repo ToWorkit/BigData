@@ -10,6 +10,7 @@ object Map {
   val conf = new SparkConf().setAppName("Map").setMaster("local[*]")
   val spark = SparkSession.builder().config(conf).getOrCreate()
   val sc = spark.sparkContext
+  // 可以设置毫秒
   val ssc = new StreamingContext(sc, Seconds(2))
 
   def main(args: Array[String]): Unit = {
@@ -30,8 +31,10 @@ object Map {
     // strRdd
     val strRdd = sc.makeRDD(Array("abc", "abd", "dbc", "dba", "cba", "aba"))
 
+    // 窄依赖
     Map(intRdd)
     Filter(strRdd)
+    // 多到一
     FlatMap(intRdd)
     Som()
   }

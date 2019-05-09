@@ -28,7 +28,7 @@ object MapPartitions {
     *   假设N个元素有M的分区，那么map函数会被调用N次，mapPartitions被调用M次
     *   rdd有10元素，3个分区，map会调用10次，mapPartitions只调用3次
     *   mapPartition可以倒过来理解，先partition，再把每个partition进行map函数，
-    *     如果在映射的过程中需要频繁创建额外的对象，使用mapPartitions要比map高效的过。
+    *     如果在映射的过程中需要频繁创建额外的对象，使用mapPartitions要比map高效的多。
     *     比如，将RDD中的所有数据通过JDBC连接写入数据库，如果使用map函数，可能要为每一个元素都创建一个connection，这样开销很大
     *     如果使用mapPartitions，那么只需要针对每一个分区建立一个connection
     */
